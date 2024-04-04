@@ -1,25 +1,24 @@
-import { TelegramClient } from "telegram";
-import { StringSession } from "telegram/sessions";
-import input from "input";
+// teagram.js
+require('dotenv').config();
+const { ethers } = require('ethers');
+const TelegramBot = require('node-telegram-bot-api');
 
-const apiId = 123456; // Your API ID
-const apiHash = "123456abcdfg"; // Your API hash
-const stringSession = new StringSession("");
+const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL;
+const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
 
-(async () => {
-  const client = new TelegramClient(stringSession, apiId, apiHash, {
-    connectionRetries: 5,
-  });
+// Initialize Sepolia provider
+const provider = new ethers.providers.JsonRpcProvider(sepoliaRpcUrl);
 
-  await client.start({
-    phoneNumber: async () => await input.text("Please enter your number: "),
-    password: async () => await input.text("Please enter your password: "),
-    phoneCode: async () => await input.text("Please enter the code you received: "),
-    onError: (err) => console.log(err),
-  });
+// Initialize Telegram bot
+const bot = new TelegramBot(telegramBotToken, { polling: true });
 
-  console.log("You should now be connected.");
-  console.log(client.session.save()); // Save this string to avoid logging in again
+// Example: Get Sepolia block number
+provider.getBlockNumber().then((blockNumber) => {
+  bot.sendMessage('@your_channel', `Sepolia Block Number: ${blockNumber}`);
+});
 
-  await client.sendMessage("me", { message: "Hello!" });
-})();
+// Example: Listen for Telegram messages
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Hello from Teagram!');
+});

@@ -1,0 +1,28 @@
+{
+  "name": "teagram",
+  "version": "1.0.1",
+  "description": "telegram for base app",
+  "main": "teagram.js",
+  "scripts": {
+    "test": "teagram.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grxkun/teagram.git"
+  },
+  "keywords": [
+    "telegram",
+    "tea"
+  ],
+  "author": "grxkun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grxkun/teagram/issues"
+  },
+  "homepage": "https://github.com/grxkun/teagram#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.65.1",
+    "telegraf": "^4.16.3",
+    "telegram": "^2.20.10"
+  }
+}npm i hc-gas-convert

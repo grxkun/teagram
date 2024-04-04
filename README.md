@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# teagram
-
-Execution-->
-node index.js
-=======
 ```
 # Teagram
 
@@ -85,4 +79,3 @@ npm install input
    await client.invoke(new RequestClass(args));
    ```
 
->>>>>>> ad77274 (update 1)
