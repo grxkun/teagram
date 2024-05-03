@@ -1,6 +1,6 @@
 {
   "name": "teagram",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "telegram for base app",
   "main": "teagram.js",
   "scripts": {
@@ -21,8 +21,21 @@
   },
   "homepage": "https://github.com/grxkun/teagram#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.65.1",
+    "async": "^3.2.5",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
+    "eslint": "^9.1.1",
+    "expresstea": "^1.1.4",
+    "glob": "^10.3.12",
+    "mkdirp": "^3.0.1",
+    "moment": "^2.30.1",
+    "node-telegram-bot-api": "^0.63.0",
+    "react-dom": "^18.3.1",
     "telegraf": "^4.16.3",
-    "telegram": "^2.20.10"
+    "telegram": "^2.20.10",
+    "tslib": "^2.6.2",
+    "underscore": "^1.13.6",
+    "vue": "^3.4.26"
   }
-}npm i hc-gas-convert
+}

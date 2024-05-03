@@ -17,8 +17,28 @@ provider.getBlockNumber().then((blockNumber) => {
   bot.sendMessage('@your_channel', `Sepolia Block Number: ${blockNumber}`);
 });
 
-// Example: Listen for Telegram messages
+// Listen for incoming messages
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Hello from Teagram!');
+  const messageText = msg.text;
+
+  // Handle commands
+  if (messageText.startsWith('/start')) {
+      bot.sendMessage(chatId, 'Welcome to Teagram! How can I assist you with tea-related information?');
+  } else if (messageText.startsWith('/brew')) {
+      // Implement your tea brewing logic here
+      bot.sendMessage(chatId, 'Brewing a delightful cup of tea...');
+  } else if (messageText.startsWith('/about')) {
+      // Provide information about Teagram
+      bot.sendMessage(chatId, 'Teagram is a Telegram bot dedicated to all things tea! Explore commands like /brew and /about.');
+  } else if (messageText.startsWith('/help')) {
+      // Display available commands
+      bot.sendMessage(chatId, 'Available commands:\n/start - Start using Teagram\n/brew - Brew a cup of tea\n/about - Learn about Teagram\n/help - Show available commands');
+  } else {
+      // Handle other messages
+      bot.sendMessage(chatId, 'I appreciate your enthusiasm for tea! Feel free to explore more commands.');
+  }
 });
+
+// Handle errors
+bot.on('polling_error', (error) =>
